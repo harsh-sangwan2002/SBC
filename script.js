@@ -31,3 +31,16 @@
     ScrollTrigger.refresh();
 
 })()
+
+gsap.to('#page>video', {
+    scrollTrigger: {
+        trigger: '#page>video',
+        start: '3% top',
+        end: 'bottom top',
+        scrub: 1,
+        scroller: '#main'
+    },
+    onStart: () => {
+        document.querySelector('#page>video').play()
+    }
+})
