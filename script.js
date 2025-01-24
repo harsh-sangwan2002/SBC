@@ -96,3 +96,36 @@ var t3 = gsap.timeline({
 t2.to('#page4>h1', {
     top: '-50%'
 })
+
+// JavaScript for infinite scrolling slider
+const slideTrack = document.querySelector('.slide-track');
+const slides = document.querySelectorAll('.slide');
+const slideWidth = slides[0].offsetWidth; // Get the width of a single slide
+const totalSlides = slides.length;
+
+// Duplicate slides to ensure seamless looping
+slides.forEach((slide) => {
+    const clone = slide.cloneNode(true);
+    slideTrack.appendChild(clone);
+});
+
+let currentIndex = 0;
+
+// Function to move the slides
+function moveSlides() {
+    currentIndex++;
+    const trackWidth = slideWidth * totalSlides;
+
+    // Reset the position when reaching the end of the original slides
+    if (currentIndex === totalSlides) {
+        slideTrack.style.transition = 'none'; // Disable transition for seamless reset
+        currentIndex = 0; // Reset to the first slide
+        slideTrack.style.transform = `translateX(0)`;
+    } else {
+        slideTrack.style.transition = 'transform 0.5s linear'; // Smooth transition
+        slideTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+}
+
+// Start the slider loop
+setInterval(moveSlides, 2000); // Adjust interval for timing
