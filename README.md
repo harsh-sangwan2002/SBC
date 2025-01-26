@@ -4,7 +4,7 @@ This is a sleek and dynamic cryptocurrency website built using HTML, CSS, JavaSc
 
 ## Live Demo
 
-Check out the live demo of this app [here](https://harsh-login-app.vercel.app/).
+Check out the live demo of this app [here](https://harsh-sangwan2002.github.io/SBC/).
 
 ## Features
 
